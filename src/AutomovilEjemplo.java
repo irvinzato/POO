@@ -37,5 +37,9 @@ public class AutomovilEjemplo {
     System.out.print("Comparando con un objeto que tiene propiedades null - ");
     System.out.println(car5.equals(car4));
 
+    //método toString personalizado
+    System.out.println(car2);
+    System.out.println(car2.toString());
+
   }
 }
