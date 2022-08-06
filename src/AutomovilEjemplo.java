@@ -1,7 +1,7 @@
 public class AutomovilEjemplo {
   public static void main(String[] args) {
     Automovil car = new Automovil("Nissan", "Sony");
-    Automovil car2 = new Automovil("Toyota", "Raize", "Blanco", 3.5);
+    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, 3.5);
     //Permite crear este sin parámetros porque tengo 2 constructores en Automovil(Sobre carga)
     Automovil car3 = new Automovil("Subaru","Impreza");
     Automovil car4 = new Automovil("Subaru","Impreza");
@@ -9,7 +9,7 @@ public class AutomovilEjemplo {
 
     //Principio de ocultar variables de nuestra clase
     car.setDisplacement(2.5);
-    car.setColor("Negro");
+    car.setColor(Color.NARANJA);
 
     System.out.println("Detalles del primer carro");
     System.out.println( car.detail() );

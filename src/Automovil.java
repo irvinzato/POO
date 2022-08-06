@@ -3,14 +3,20 @@ public class Automovil {
   private int id;
   private String maker;
   private String model;
-  private String color = "Blanco";
+  //Puedo parametrizar usando ENUMS o con constantes "final" pero queda mejor con los enums
+  private Color color = Color.GRIS;
+  //Enum mas elaborado
+  private TypeCar type = TypeCar.SEDAN;
   private double displacement;
   private int tankCapacity = 40;
   //Un "static" no le pertenece a la instancia, no es del objeto, es de la clase. No ocupa el "this", pero puede usar el nombre de la clase, en método detail lo uso
   //Siempre un atributo "static" debe ir de la mano con método "static" y biceversa
-  private static String patentColor = "Naranja";
+  private static Color patentColor = Color.AZUL;
   private static int tankCapacityStatic = 30;
   private static int lastID;
+  //"final" son atributos constantes
+  public static final Integer MAXIMUM_HIGHWAY_SPEED = 120;
+  public static final Integer MAXIMUM_CITY_SPEED = 60;
 
   //Constructor(Podría tener más de 1 constructor por alguna razón)
   //"this()" hace referencia al constructor de la clase
@@ -24,20 +30,20 @@ public class Automovil {
     this.id = lastID++;
   }
   //Hago varios para tener sobre carga de constructores
-  public Automovil ( String maker, String model, String color ) {
+  public Automovil ( String maker, String model, Color color ) {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
     this.color = color;
   }
-  public Automovil ( String maker, String model, String color, double displacement ) {
+  public Automovil ( String maker, String model, Color color, double displacement ) {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
     this.color = color;
     this.displacement = displacement;
   }
-  public Automovil ( String maker, String model, String color, double displacement, int tankCapacity ) {
+  public Automovil ( String maker, String model, Color color, double displacement, int tankCapacity ) {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
@@ -56,8 +62,11 @@ public class Automovil {
   public String getModel() {
     return this.model;
   }
-  public String getColor() {
+  public Color getColor() {
     return this.color;
+  }
+  public TypeCar getType() {
+    return this.type;
   }
   public double getDisplacement() {
     return this.displacement;
@@ -65,7 +74,7 @@ public class Automovil {
   public int getTankCapacity() {
     return this.tankCapacity;
   }
-  public static String getPatentColor() {
+  public static Color getPatentColor() {
     return patentColor;
   }
   public static int getTankCapacityStatic() {
@@ -75,6 +84,7 @@ public class Automovil {
     return Automovil.lastID;
   }
 
+
   //Métodos SET para actualizar valores
   public void setMaker( String maker ) {
     this.maker = maker;
@@ -82,8 +92,11 @@ public class Automovil {
   public void setModel( String model ) {
     this.model = model;
   }
-  public void setColor( String color ) {
+  public void setColor( Color color ) {
     this.color = color;
+  }
+  public void setType( TypeCar type ) {
+    this.type = type;
   }
   public void setDisplacement( double displacement ) {
     this.displacement = displacement;
@@ -91,7 +104,7 @@ public class Automovil {
   public void setTankCapacity( int tankCapacity ) {
     this.tankCapacity = tankCapacity;
   }
-  public static void setPatentColor( String patentColor ) {
+  public static void setPatentColor( Color patentColor ) {
     Automovil.patentColor = patentColor;
   }
   public static void setTankCapacityStatic( int tankCapacityStatic ) {
@@ -101,11 +114,13 @@ public class Automovil {
   public String detail() {
     //Con "this" hace referencia a sí mismo dentro de la clase(aveces se puede omitir, depende la situación)
     String maker = "Por definir";
-    return  "maker = " + this.maker +
+    return  "ID = " + this.id +
+            "\nmaker = " + this.maker +
             "\nmodel = " + this.model +
-            "\ncolor = " + this.color +
+            "\ntipo = " + this.getType().getName() +
+            "\ncolor = " + this.color.getColor() +
             "\ndisplacement = " + this.displacement +
-            "\npatenteColor = " + Automovil.patentColor;
+            "\npatenteColor = " + Automovil.patentColor.getColor();
   }
 
   public String speedUp( int rpm ) {
@@ -153,7 +168,7 @@ public class Automovil {
     return "Automovil{" +
             "maker='" + maker + '\'' +
             ", model='" + model + '\'' +
-            ", color='" + color + '\'' +
+            ", color='" + color.getColor() + '\'' +
             ", displacement=" + displacement +
             ", tankCapacity=" + tankCapacity +
             '}';

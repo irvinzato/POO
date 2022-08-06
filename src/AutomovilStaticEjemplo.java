@@ -1,15 +1,22 @@
 public class AutomovilStaticEjemplo {
   public static void main(String[] args) {
     Automovil car = new Automovil("Nissan", "Sony");
-    Automovil car2 = new Automovil("Toyota", "Raize", "Blanco", 3.5);
+    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, 3.5);
     Automovil car3 = new Automovil("Subaru","Impreza");
     Automovil car4 = new Automovil("Subaru","Impreza");
     Automovil car5 = new Automovil();
     //Modifico variable static, cambia para todos los objetos
-    Automovil.setPatentColor("Verde");
-
+    Automovil.setPatentColor(Color.AMARILLO);
     car.setDisplacement(2.5);
-    car.setColor("Negro");
+    //Se accede a los enums igual que los static, con el nombre del enum o clase(solo se debe actualizar en la clase el tipo)
+    car.setColor(Color.BLANCO);
+
+    //Enums
+    System.out.println("Accediento a ENUMS");
+    car.setType( TypeCar.HATCHBACK );
+    car2.setType( TypeCar.CONVERTIBLE );
+    car3.setType( TypeCar.COUPE );
+    car4.setType( TypeCar.FURGON );
 
     System.out.println("Detalles del primer carro");
     System.out.println( car.detail() );
@@ -23,6 +30,10 @@ public class AutomovilStaticEjemplo {
     System.out.println("Metodo estatico " + Automovil.calculateConsumptionStatic( 300, 60 ));
     System.out.println("Atributo estatico del tanque " + Automovil.getTankCapacityStatic( ));
     System.out.println("Total de objetos Automovil creados " + Automovil.getLastID());
+
+    //constantes(final)
+    System.out.println("Velocidad maxima en carretera " + Automovil.MAXIMUM_HIGHWAY_SPEED);
+    System.out.println("Velocidad maxima en ciudad " + Automovil.MAXIMUM_CITY_SPEED);
 
 
   }
