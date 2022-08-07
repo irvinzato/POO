@@ -3,12 +3,13 @@ public class Automovil {
   private int id;
   private String maker;
   private String model;
-  //Puedo parametrizar usando ENUMS o con constantes "final" pero queda mejor con los enums
   private Color color = Color.GRIS;
   //Enum mas elaborado
   private TypeCar type = TypeCar.SEDAN;
-  private double displacement;
-  private int tankCapacity = 40;
+  private Motor engine;
+  private Tanque tank;
+  private Persona driver;
+  private Rueda[] wheels;
   //Un "static" no le pertenece a la instancia, no es del objeto, es de la clase. No ocupa el "this", pero puede usar el nombre de la clase, en método detail lo uso
   //Siempre un atributo "static" debe ir de la mano con método "static" y biceversa
   private static Color patentColor = Color.AZUL;
@@ -36,20 +37,31 @@ public class Automovil {
     this.model = model;
     this.color = color;
   }
-  public Automovil ( String maker, String model, Color color, double displacement ) {
+  public Automovil ( String maker, String model, Color color, Motor engine ) {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
     this.color = color;
-    this.displacement = displacement;
+    this.engine = engine;
   }
-  public Automovil ( String maker, String model, Color color, double displacement, int tankCapacity ) {
+  public Automovil ( String maker, String model, Color color, Motor engine, Tanque tank ) {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
     this.color = color;
-    this.displacement = displacement;
-    this.tankCapacity = tankCapacity;
+    this.engine = engine;
+    this.tank = tank;
+  }
+
+  public Automovil( String maker, String model, Color color, Motor engine, Tanque tank, Persona driver, Rueda[] wheels) {
+    this.id = lastID++;
+    this.maker = maker;
+    this.model = model;
+    this.color = color;
+    this.engine = engine;
+    this.tank = tank;
+    this.driver = driver;
+    this.wheels = wheels;
   }
 
   //Métodos GET para obtener valores privados
@@ -68,11 +80,17 @@ public class Automovil {
   public TypeCar getType() {
     return this.type;
   }
-  public double getDisplacement() {
-    return this.displacement;
+  public Motor getEngine() {
+    return this.engine;
   }
-  public int getTankCapacity() {
-    return this.tankCapacity;
+  public Tanque getTank() {
+    return this.tank;
+  }
+  public Persona getDriver() {
+    return this.driver;
+  }
+  public Rueda[] getWheels() {
+    return this.wheels;
   }
   public static Color getPatentColor() {
     return patentColor;
@@ -98,11 +116,17 @@ public class Automovil {
   public void setType( TypeCar type ) {
     this.type = type;
   }
-  public void setDisplacement( double displacement ) {
-    this.displacement = displacement;
+  public void setEngine( Motor engine ) {
+    this.engine = engine;
   }
-  public void setTankCapacity( int tankCapacity ) {
-    this.tankCapacity = tankCapacity;
+  public void setTank( Tanque tank ) {
+    this.tank = tank;
+  }
+  public void setDriver( Persona driver ) {
+    this.driver = driver;
+  }
+  public void setWheels( Rueda[] wheels ) {
+    this.wheels = wheels;
   }
   public static void setPatentColor( Color patentColor ) {
     Automovil.patentColor = patentColor;
@@ -119,7 +143,7 @@ public class Automovil {
             "\nmodel = " + this.model +
             "\ntipo = " + this.getType().getName() +
             "\ncolor = " + this.color.getColor() +
-            "\ndisplacement = " + this.displacement +
+            "\ndisplacement = " + this.engine.getCylinders() +
             "\npatenteColor = " + Automovil.patentColor.getColor();
   }
 
@@ -139,11 +163,11 @@ public class Automovil {
 
   //Esto es SOBRE CARGA de métodos. Mismo nombre de método pero diferentes parámetros que recibe
   public float calculateConsumption( int km, float percentage ) {
-    return km/(tankCapacity*percentage);
+    return km/(this.tank.getCapacity()*percentage);
   }
 
   public float calculateConsumption( int km, int percentage ) {
-    return km/(tankCapacity*(percentage/100f));
+    return km/(this.tank.getCapacity()*(percentage/100f));
   }
   //Este método es estatico y usa variables que se pasan por referencia o estaticas, otro tipo no dejara usar
   public static float calculateConsumptionStatic( int km, int percentage ) {
@@ -169,8 +193,8 @@ public class Automovil {
             "maker='" + maker + '\'' +
             ", model='" + model + '\'' +
             ", color='" + color.getColor() + '\'' +
-            ", displacement=" + displacement +
-            ", tankCapacity=" + tankCapacity +
+            ", displacement=" + engine.getCylinders() +
+            ", tankCapacity=" + tank.getCapacity() +
             '}';
   }
 

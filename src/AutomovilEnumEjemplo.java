@@ -1,10 +1,10 @@
 public class AutomovilEnumEjemplo {
   public static void main(String[] args) {
     Automovil sony = new Automovil("Nissan", "Sony");
-    Automovil raize = new Automovil("Toyota", "Raize", Color.BLANCO, 3.5);
+    Automovil raize = new Automovil("Toyota", "Raize", Color.BLANCO, new Motor( 3.5, TipoMotor.BENCINA ));
     Automovil.setPatentColor(Color.AMARILLO);
 
-    sony.setDisplacement(2.5);
+    sony.setTank( new Tanque() );
     sony.setColor(Color.BLANCO);
     sony.setType( TypeCar.HATCHBACK );
     raize.setType( TypeCar.PICKUP );

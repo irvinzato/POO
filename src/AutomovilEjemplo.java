@@ -1,14 +1,19 @@
 public class AutomovilEjemplo {
   public static void main(String[] args) {
     Automovil car = new Automovil("Nissan", "Sony");
-    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, 3.5);
+    Motor mazda = new Motor(3.0, TipoMotor.DIESEL);
+    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, mazda );
+    car2.setTank( new Tanque(45) );
     //Permite crear este sin parámetros porque tengo 2 constructores en Automovil(Sobre carga)
     Automovil car3 = new Automovil("Subaru","Impreza");
+    car3.setEngine( new Motor( 3.5, TipoMotor.DIESEL ) );
     Automovil car4 = new Automovil("Subaru","Impreza");
     Automovil car5 = new Automovil();
 
-    //Principio de ocultar variables de nuestra clase
-    car.setDisplacement(2.5);
+    //Puedo crear primero el objeto y después asignarlo en mi método set, o crear el objeto dentro del set.
+    Motor subaruEngine = new Motor(2.0, TipoMotor.BENCINA);
+    car.setEngine( subaruEngine );
+    car.setTank( new Tanque() );
     car.setColor(Color.NARANJA);
 
     System.out.println("Detalles del primer carro");

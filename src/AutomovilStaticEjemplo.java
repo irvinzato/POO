@@ -1,21 +1,23 @@
 public class AutomovilStaticEjemplo {
   public static void main(String[] args) {
     Automovil car = new Automovil("Nissan", "Sony");
-    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, 3.5);
+    Automovil car2 = new Automovil("Toyota", "Raize", Color.BLANCO, new Motor( 4.0, TipoMotor.DIESEL ));
     Automovil car3 = new Automovil("Subaru","Impreza");
     Automovil car4 = new Automovil("Subaru","Impreza");
     Automovil car5 = new Automovil();
     //Modifico variable static, cambia para todos los objetos
     Automovil.setPatentColor(Color.AMARILLO);
-    car.setDisplacement(2.5);
+    car.setTank( new Tanque(50) );
     //Se accede a los enums igual que los static, con el nombre del enum o clase(solo se debe actualizar en la clase el tipo)
     car.setColor(Color.BLANCO);
+    car.setEngine( new Motor( 2.5, TipoMotor.BENCINA ) );
 
     //Enums
     System.out.println("Accediento a ENUMS");
     car.setType( TypeCar.HATCHBACK );
     car2.setType( TypeCar.CONVERTIBLE );
     car3.setType( TypeCar.COUPE );
+    car3.setEngine( new Motor( 5.3, TipoMotor.DIESEL ) );
     car4.setType( TypeCar.FURGON );
 
     System.out.println("Detalles del primer carro");
