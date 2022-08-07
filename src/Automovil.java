@@ -5,7 +5,7 @@ public class Automovil {
   private String model;
   private Color color = Color.GRIS;
   //Enum mas elaborado
-  private TypeCar type = TypeCar.SEDAN;
+  private TypeCar type;
   private Motor engine;
   private Tanque tank;
   private Persona driver;
@@ -138,13 +138,17 @@ public class Automovil {
   public String detail() {
     //Con "this" hace referencia a sí mismo dentro de la clase(aveces se puede omitir, depende la situación)
     String maker = "Por definir";
-    return  "ID = " + this.id +
+    String detail = "ID = " + this.id +
             "\nmaker = " + this.maker +
-            "\nmodel = " + this.model +
-            "\ntipo = " + this.getType().getName() +
-            "\ncolor = " + this.color.getColor() +
-            "\ndisplacement = " + this.engine.getCylinders() +
-            "\npatenteColor = " + Automovil.patentColor.getColor();
+            "\nmodel = " + this.model;
+    //Para proteger si algún valor no lo llenaron y es nulo, otra solución es dar un valor por defecto
+        if( this.getType() != null ) {
+          detail += "\ntipo = " + this.getType().getName();
+        }
+        detail += "\ncolor = " + this.color.getColor() +
+          "\ndisplacement = " + this.engine.getCylinders() +
+          "\npatenteColor = " + Automovil.patentColor.getColor();
+    return detail;
   }
 
   public String speedUp( int rpm ) {
