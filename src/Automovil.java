@@ -10,6 +10,7 @@ public class Automovil {
   private Tanque tank;
   private Persona driver;
   private Rueda[] wheels;
+  private int indexWheels = 0;
   //Un "static" no le pertenece a la instancia, no es del objeto, es de la clase. No ocupa el "this", pero puede usar el nombre de la clase, en método detail lo uso
   //Siempre un atributo "static" debe ir de la mano con método "static" y biceversa
   private static Color patentColor = Color.AZUL;
@@ -25,10 +26,12 @@ public class Automovil {
     this.id = lastID++;
     this.maker = maker;
     this.model = model;
+    this.wheels = new Rueda[5];
   }
   //Segundo constructor
   public Automovil () {
     this.id = lastID++;
+    this.wheels = new Rueda[5];
   }
   //Hago varios para tener sobre carga de constructores
   public Automovil ( String maker, String model, Color color ) {
@@ -36,6 +39,7 @@ public class Automovil {
     this.maker = maker;
     this.model = model;
     this.color = color;
+    this.wheels = new Rueda[5];
   }
   public Automovil ( String maker, String model, Color color, Motor engine ) {
     this.id = lastID++;
@@ -43,6 +47,7 @@ public class Automovil {
     this.model = model;
     this.color = color;
     this.engine = engine;
+    this.wheels = new Rueda[5];
   }
   public Automovil ( String maker, String model, Color color, Motor engine, Tanque tank ) {
     this.id = lastID++;
@@ -51,6 +56,7 @@ public class Automovil {
     this.color = color;
     this.engine = engine;
     this.tank = tank;
+    this.wheels = new Rueda[5];
   }
 
   public Automovil( String maker, String model, Color color, Motor engine, Tanque tank, Persona driver, Rueda[] wheels) {
@@ -62,6 +68,7 @@ public class Automovil {
     this.tank = tank;
     this.driver = driver;
     this.wheels = wheels;
+    this.wheels = new Rueda[5];
   }
 
   //Métodos GET para obtener valores privados
@@ -127,6 +134,14 @@ public class Automovil {
   }
   public void setWheels( Rueda[] wheels ) {
     this.wheels = wheels;
+  }
+  //Es muy común que para arreglos se implemente un método add(para agregar de uno en uno)
+  public Automovil addWheel( Rueda wheel ) {
+    //Para asegurar que donde se utilizara se creó un arreglo con las dimensiones adecuadas
+    if( indexWheels < this.wheels.length ) {
+      this.wheels[ indexWheels++ ] = wheel;
+    }
+    return this;
   }
   public static void setPatentColor( Color patentColor ) {
     Automovil.patentColor = patentColor;

@@ -1,30 +1,38 @@
 public class AutomovilRelacionesObjetosEjemplo {
   public static void main(String[] args) {
-    Rueda[] ruedasSubaru = new Rueda[5];
-    ruedasSubaru[0] = new Rueda( "Yokohama", 16, 7.5 );
-    ruedasSubaru[1] = new Rueda( "Yokohama", 16, 7.5 );
-    ruedasSubaru[2] = new Rueda( "Yokohama", 16, 7.5 );
-    ruedasSubaru[3] = new Rueda( "Yokohama", 16, 7.5 );
-    ruedasSubaru[4] = new Rueda( "Yokohama", 16, 7.5 );
-    Rueda[] ruedasNissan = { new Rueda( "Michelin", 18, 10.5 ), new Rueda( "Michelin", 18, 10.5 )
-                          , new Rueda( "Michelin", 18, 10.5 ), new Rueda( "Michelin", 18, 10.5 )
-                          , new Rueda( "Michelin", 18, 10.5 ) };
     Rueda[] ruedasToyota = { new Rueda( "Pirelli", 20, 11.5 ), new Rueda( "Pirelli", 20, 11.5 )
                           , new Rueda( "Pirelli", 20, 11.5 ), new Rueda( "Pirelli", 20, 11.5 )
                           , new Rueda( "Pirelli", 20, 11.5 ) };
+
     Persona conductorSubaru = new Persona( "Irving", "Rivera" );
     Persona conductorNissan = new Persona( "Angeles", "Lopez" );
     Persona conductorToyota = new Persona( "Jade", "Lopez" );
     Persona conductorSubaru2 = new Persona( "Jesus", "Rivera" );
     Automovil nissan = new Automovil("Nissan", "Sony");
+    //Otra forma de llenar los atributos, con métodos encadenados
+    nissan.addWheel( new Rueda( "Michelin", 18, 10.5 ) )
+            .addWheel(new Rueda( "Michelin", 18, 10.5 ))
+            .addWheel(new Rueda( "Michelin", 18, 10.5 ))
+            .addWheel(new Rueda( "Michelin", 18, 10.5 ))
+            .addWheel(new Rueda( "Michelin", 18, 10.5 ));
     Automovil toyota = new Automovil("Toyota", "Raize", Color.BLANCO, new Motor( 4.0, TipoMotor.DIESEL ), new Tanque(), conductorToyota, ruedasToyota);
+
     Automovil subaru = new Automovil("Subaru","Impreza");
+    Rueda[] ruedasSubaru = new Rueda[5];
+    for( int i = 0; i < ruedasSubaru.length; i++ ){
+      //De esta manera se maneja el arreglo de forma interna en la clase Automovil
+      subaru.addWheel( new Rueda("Yokohama", 16, 7.5) );
+    }
+
     Automovil subaru2 = new Automovil("Subaru","Impreza", Color.AMARILLO, new Motor( 4.5, TipoMotor.BENCINA ), new Tanque(), conductorSubaru2, null );
+    Rueda[] ruedasSubaru2 = new Rueda[5];
+    for( int i = 0; i < ruedasSubaru2.length; i++ ){
+      subaru2.addWheel(new Rueda( "Michelin", 16, 7.5 ));
+    }
 
     nissan.setDriver( conductorNissan );
-    nissan.setWheels( ruedasNissan );
     subaru.setDriver( conductorSubaru );
-    subaru.setWheels( ruedasSubaru );
+    //subaru.setWheels( ruedasSubaru );
 
     Automovil.setPatentColor(Color.AMARILLO);
     nissan.setTank( new Tanque(50) );
