@@ -15,6 +15,7 @@ public class AutomovilRelacionesObjetosEjemplo {
             .addWheel(new Rueda( "Michelin", 18, 10.5 ))
             .addWheel(new Rueda( "Michelin", 18, 10.5 ))
             .addWheel(new Rueda( "Michelin", 18, 10.5 ));
+
     Automovil toyota = new Automovil("Toyota", "Raize", Color.BLANCO, new Motor( 4.0, TipoMotor.DIESEL ), new Tanque(), conductorToyota, ruedasToyota);
 
     Automovil subaru = new Automovil("Subaru","Impreza");

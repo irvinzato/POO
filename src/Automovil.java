@@ -1,4 +1,4 @@
-public class Automovil {
+public class Automovil implements Comparable<Automovil> {
   //Con la variable id y lastID estatica puedo asignar un ID propio a cada objeto cuando es creado y saber cuantas tengo
   private int id;
   private String maker;
@@ -217,7 +217,9 @@ public class Automovil {
             '}';
   }
 
-  //Un "static" no le pertenece a la instancia, no es del objeto, es de la clase
-
-
+  //Ordeno por fabricante, puedo elegir el argumento por el que me interesa ordenar
+  @Override
+  public int compareTo( Automovil a ) {
+    return this.maker.compareTo( a.maker );
+  }
 }
