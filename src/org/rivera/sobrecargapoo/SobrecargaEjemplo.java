@@ -16,5 +16,10 @@ public class SobrecargaEjemplo {
     //Un carácter también tiene su representación decimal por eso no truena
     System.out.println("Sumar enteros con caracter " + calculator.sumar(10, '@'));
     System.out.println("Sumar float y entero caracter " + calculator.sumar(10F,'¬'));
+
+    //Número variable de argumentos
+    System.out.println("Argumentos variables " + calculator.sumar(10, 4, 4, 20, 24));
+    System.out.println("Sumar float mas n enteros " + calculator.sumar(10.5F, 4, 4, 20, 24));
+    System.out.println("Sumar n doubles " + calculator.sumar(10.5, 4.4, 4.9, 20.5, 24.5));
   }
 }

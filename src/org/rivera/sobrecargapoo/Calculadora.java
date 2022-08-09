@@ -5,6 +5,30 @@ public class Calculadora {
   public int sumar(int a, int b) {
     return a + b;
   }
+  //"int... args" - n cantidad de argumentos, los argumentos están en un arreglo
+  public int sumar(int... args) {
+    int total = 0;
+    for(int a: args) {
+      total += a;
+    }
+    return total;
+  }
+  //Puedo combinar con otros argumentos
+  public float sumar(float arf, int... args) {
+    float total = arf;
+    for(int a: args) {
+      total += a;
+    }
+    return total;
+  }
+
+  public double sumar(double... varargs) {
+    double total = 0.0;
+    for(double a: varargs) {
+      total += a;
+    }
+    return total;
+  }
 
   public float sumar(float a, float b) {
     return a + b;
