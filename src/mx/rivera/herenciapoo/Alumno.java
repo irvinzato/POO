@@ -6,6 +6,12 @@ public class Alumno extends Persona{
   private double noteProgramming;
   private double noteHistory;
 
+  public Alumno() {
+    //Con súper invoca el constructor de la clase padre, siempre debe ser la primera línea y hay que ver si recibe algo su constructor
+    super();
+    System.out.println("Alumno: inicializando constructor");
+  }
+
   public String getNameSchool() {
     return nameSchool;
   }

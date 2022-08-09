@@ -3,6 +3,7 @@ import mx.rivera.herenciapoo.*;
 
 public class HerenciaEjemplo {
   public static void main(String[] args) {
+    System.out.println("======= Creando la instancia de la clase Alumno =======");
     Alumno mauricio = new Alumno();
     mauricio.setName("Mauricio");
     mauricio.setLastName("Silva");
@@ -11,6 +12,7 @@ public class HerenciaEjemplo {
     mauricio.setNoteProgramming(9.8);
     mauricio.setNoteHistory(7.8);
 
+    System.out.println("======= Creando la instancia de la clase AlumnoInternacional =======");
     AlumnoInternacional jenyInter = new AlumnoInternacional();
     jenyInter.setName("Jeny");
     jenyInter.setLastName("Gosling");
@@ -22,11 +24,13 @@ public class HerenciaEjemplo {
     jenyInter.setNoteMaths(7.5);
     jenyInter.setNoteHistory(9.5);
 
+    System.out.println("======= Creando la instancia de la clase Profesor =======");
     Profesor irving = new Profesor();
     irving.setName("Irving");
     irving.setLastName("Rivera");
     irving.setCourse("Matematicas");
 
+    System.out.println("======= =======");
     System.out.println("Alumno: " + mauricio.getName() + " " + mauricio.getLastName() + ", escuela: " + mauricio.getNameSchool());
     System.out.println("Alumno internacional: " + jenyInter.getName() + " " + jenyInter.getLastName() + ", escuela: " +
             jenyInter.getNameSchool() + ", pais: " + jenyInter.getCountry());
