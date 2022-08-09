@@ -2,6 +2,7 @@ package org.rivera.sobrecargapoo;
 
 public class Calculadora {
   //En la sobre carga de métodos lo que importa es el tipo de datos
+  //Nota: Puedo hacer todos los métodos "static" ya que no ocupo instancear para usarlos
   public int sumar(int a, int b) {
     return a + b;
   }
