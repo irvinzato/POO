@@ -3,7 +3,7 @@ package mx.rivera.herenciapoo;
 public class Alumno extends Persona{
   private String nameSchool;
   private double noteMaths;
-  private double noteLanguage;
+  private double noteProgramming;
   private double noteHistory;
 
   public String getNameSchool() {
@@ -22,12 +22,12 @@ public class Alumno extends Persona{
     this.noteMaths = noteMaths;
   }
 
-  public double getNoteLanguage() {
-    return noteLanguage;
+  public double getNoteProgramming() {
+    return noteProgramming;
   }
 
-  public void setNoteLanguage(double noteLanguage) {
-    this.noteLanguage = noteLanguage;
+  public void setNoteProgramming(double noteLanguage) {
+    this.noteProgramming = noteLanguage;
   }
 
   public double getNoteHistory() {
