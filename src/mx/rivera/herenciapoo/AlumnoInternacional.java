@@ -8,6 +8,15 @@ public class AlumnoInternacional extends Alumno{
     System.out.println("AlumnoInternacional: inicializando constructor");
   }
 
+  public AlumnoInternacional(String name, String lastName) {
+    super(name, lastName);
+  }
+
+  public AlumnoInternacional(String name, String lastName, String country) {
+    super(name, lastName);
+    this.country = country;
+  }
+
   public String getCountry() {
     return country;
   }
