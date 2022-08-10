@@ -28,4 +28,10 @@ public class Profesor extends Persona{
   public String greet() {
     return "Hola soy el profesor, me llamo " + getName() + " impartiré la materia " + getCourse();
   }
+
+  @Override
+  public String toString() {
+    return  super.toString() +
+            "\ncurso ='" + course;
+  }
 }

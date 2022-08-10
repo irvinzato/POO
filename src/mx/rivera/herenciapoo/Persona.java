@@ -58,4 +58,13 @@ public class Persona {
   public String greet() {
     return "Hola que tal !";
   }
+
+  @Override
+  public String toString() {
+    return "nombre ='" + name + '\'' +
+            ", apellido ='" + lastName + '\'' +
+            ", edad =" + age +
+            ", email ='" + email + '\'' +
+            ", saludo =" + this.greet();
+  }
 }

@@ -76,4 +76,14 @@ public class Alumno extends Persona{
   public double calculateAverage() {
     return (noteMaths + noteProgramming + noteHistory) / 3;
   }
+
+  @Override
+  public String toString() {
+    return  super.toString() +
+            "\nescuela ='" + nameSchool + '\'' +
+            ", nota de matemáticas =" + noteMaths +
+            ", nota de programación =" + noteProgramming +
+            ", nota de historia =" + noteHistory +
+            ", promedio =" + this.calculateAverage();
+  }
 }

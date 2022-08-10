@@ -43,4 +43,11 @@ public class AlumnoInternacional extends Alumno{
     //Ocupo el método del padre porque contiene las otras materias que ocupo para el promedio de esta clase
     return ((super.calculateAverage() * 3) + noteLanguages) / 4 ;
   }
+
+  @Override
+  public String toString() {
+    return  super.toString() +
+            "\npais ='" + country + '\'' +
+            ", nota de lenguajes =" + noteLanguages;
+  }
 }
