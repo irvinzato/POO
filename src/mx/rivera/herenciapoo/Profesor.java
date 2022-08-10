@@ -23,4 +23,9 @@ public class Profesor extends Persona{
   public void setCourse(String course) {
     this.course = course;
   }
+
+  @Override
+  public String greet() {
+    return "Hola soy el profesor, me llamo " + getName() + " impartiré la materia " + getCourse();
+  }
 }

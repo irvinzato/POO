@@ -49,12 +49,17 @@ public class HerenciaConstructoresEjemplo {
         System.out.println("Pais: " + ((AlumnoInternacional) person).getCountry());
         System.out.println("Nota idiomas " + ((AlumnoInternacional) person).getNoteLanguages());
       }
+      //Cada objeto invoca su propio método(Entra Alumno y AlumnoInternacional)
+      System.out.println("Promedio de alumno: " + ((Alumno) person).calculateAverage());
     }
 
     if( person instanceof Profesor ) {
       System.out.println("Datos del tipo profesor");
       System.out.println("Materia: " + ((Profesor) person).getCourse());
     }
+    //Cada objeto tiene su método "greet", algunas reutilizan el método del padre
+    System.out.println("========== sobre carga de métodos(saludar) ===========");
+    System.out.println(person.greet());
     System.out.println("=====================");
   }
 

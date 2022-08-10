@@ -64,4 +64,16 @@ public class Alumno extends Persona{
   public void setNoteHistory(double noteHistory) {
     this.noteHistory = noteHistory;
   }
+
+  //Sobre carga de métodos
+  @Override
+  public String greet() {
+    //Puedo reutilizar lo que tiene el método del padre usando el super
+    String greeting = super.greet();
+    return greeting + ", soy alumno y me llamo " + getName();
+  }
+
+  public double calculateAverage() {
+    return (noteMaths + noteProgramming + noteHistory) / 3;
+  }
 }

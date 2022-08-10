@@ -53,4 +53,9 @@ public class Persona {
   public void setEmail(String email) {
     this.email = email;
   }
+
+  //Sobre carga de métodos padre e hijos
+  public String greet() {
+    return "Hola que tal !";
+  }
 }
