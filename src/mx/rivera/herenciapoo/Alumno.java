@@ -1,5 +1,5 @@
 package mx.rivera.herenciapoo;
-
+//Nota: Si coloco "final" antes de la clase quiere decir que no se puede heredar, lo mismo con métodos
 public class Alumno extends Persona{
   private String nameSchool;
   private double noteMaths;
