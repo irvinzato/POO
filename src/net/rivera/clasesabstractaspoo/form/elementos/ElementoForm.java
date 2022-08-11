@@ -1,6 +1,7 @@
 package net.rivera.clasesabstractaspoo.form.elementos;
 
 import net.rivera.clasesabstractaspoo.form.validador.Validador;
+import net.rivera.clasesabstractaspoo.form.validador.mensaje.MensajeFormateable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,11 @@ abstract public class ElementoForm {
     for( Validador v: validators ) {
       if( !v.isValid(this.value) ){
         //this.errors.add(v.getMessage() + " "  + this.name); Está es la manera de hacerlo sin usar "%s" en los mensajes
-        this.errors.add( String.format(v.getMessage(), this.name) );
+        if( v instanceof MensajeFormateable ) {
+          this.errors.add( ((MensajeFormateable) v).formattableMessage(this.name) );
+        } else {
+          this.errors.add( String.format(v.getMessage(), this.name) );
+        }
       }
     }
     return this.errors.isEmpty();

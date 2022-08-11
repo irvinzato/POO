@@ -49,7 +49,7 @@ public class FormEjemplo {
     hello.setValue("Hola que tal, campo desabilitado");
 
     username.setValue("");
-    password.setValue("123456");
+    password.setValue("");
     email.setValue("multizato@hotmail.com");
     age.setValue("26");
     experience.setValue("Más de 6 años de experiencia...");
@@ -78,7 +78,7 @@ public class FormEjemplo {
 
     System.out.println("Revision de errores");
     elements.forEach(ef -> {
-      if( !ef.isValid() ) {   //System.out::println - Es la forma de simplificar un método por referencia en lambda
+      if( !ef.isValid() ) {   //System.out::println - Es la forma de simplificar un método por referencia
         ef.getErrors().forEach(System.out::println);
       }
     });
