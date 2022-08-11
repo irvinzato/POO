@@ -3,7 +3,7 @@ package ru.rivera.interfacespoo.imprenta.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Curriculum extends Hoja{
+public class Curriculum extends Hoja implements Imprimible{
   private String person;
   private String graduate;
   private List<String> experiences;

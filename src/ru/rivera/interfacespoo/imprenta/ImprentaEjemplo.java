@@ -1,8 +1,7 @@
 package ru.rivera.interfacespoo.imprenta;
 
-import ru.rivera.interfacespoo.imprenta.modelo.Curriculum;
-import ru.rivera.interfacespoo.imprenta.modelo.Hoja;
-import ru.rivera.interfacespoo.imprenta.modelo.Informe;
+import ru.rivera.interfacespoo.imprenta.modelo.*;
+import static ru.rivera.interfacespoo.imprenta.modelo.Genero.*;
 
 public class ImprentaEjemplo {
   public static void main(String[] args) {
@@ -20,9 +19,18 @@ public class ImprentaEjemplo {
     toPrint(cv);
     toPrint(report);
 
+    Libro library = new Libro("Frank", "Historia de frameworks", PROGRAMACION);
+    library.addPage(new Pagina("Historia sobre Angular..."))
+            .addPage(new Pagina("Historia de Spring..."))
+            .addPage(new Pagina("Historia de React..."))
+            .addPage(new Pagina("Historia de Vue"));
+
+    System.out.println("=========== LIBRO ===========");
+    toPrint(library);
+
   }
-  //Cualquier objeto que sea hijo de hoja podrá pasar por este método
-  public static void toPrint(Hoja printable) {
+  //Cambio Hoja por Imprimible para que no necesariamente se imprima una hoja, puede ser algo más
+  public static void toPrint(Imprimible printable) {
     System.out.println(printable.toPrint());
   }
 }

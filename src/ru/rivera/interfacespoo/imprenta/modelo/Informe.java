@@ -1,6 +1,6 @@
 package ru.rivera.interfacespoo.imprenta.modelo;
 
-public class Informe extends Hoja{
+public class Informe extends Hoja implements Imprimible{
   private String author;
   private String reviewer;
 
