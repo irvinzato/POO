@@ -2,6 +2,7 @@ package net.rivera.clasesabstractaspoo.form;
 
 import net.rivera.clasesabstractaspoo.form.elementos.*;
 import net.rivera.clasesabstractaspoo.form.elementos.select.*;
+import net.rivera.clasesabstractaspoo.form.validador.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,15 @@ public class FormEjemplo {
       }
     };*/
     InputForm username = new InputForm("username"); //Es text por defecto
+    username.addValidator(new RequeridoValidador());
     InputForm password = new InputForm("clave","password");
+    password.addValidator(new RequeridoValidador())
+            .addValidator(new LargoValidador( 6, 12));
     InputForm email = new InputForm("email","email");
+    email.addValidator(new RequeridoValidador())
+          .addValidator(new EmailValidador());
     InputForm age = new InputForm("edad","number");
+    age.addValidator(new NumeroValidador());
 
     TextAreaForm experience = new TextAreaForm("exp", 5, 9);
 
@@ -30,6 +37,8 @@ public class FormEjemplo {
     language.addOption(new Opcion("JavaScript", "3").setSelected());  //Sobre carga de métodos
     language.addOption(new Opcion("Typescript", "4"));
     language.addOption(new Opcion("PHP", "5"));
+    language.addValidator(new NoNuloValidador());
+
     //De esta forma se crea la instancia de una clase abstracta
     ElementoForm hello = new ElementoForm("saludo") {
       @Override
@@ -39,7 +48,7 @@ public class FormEjemplo {
     };
     hello.setValue("Hola que tal, campo desabilitado");
 
-    username.setValue("irvinzato");
+    username.setValue("");
     password.setValue("123456");
     email.setValue("multizato@hotmail.com");
     age.setValue("26");
@@ -65,6 +74,15 @@ public class FormEjemplo {
     elements.forEach( ef -> {
       System.out.println(ef.drawHtml());
       System.out.println("<br>");
+    });
+
+    System.out.println("Revision de errores");
+    elements.forEach(ef -> {
+      if( !ef.isValid() ) {
+        ef.getErrors().forEach(err -> {
+          System.out.println("Error en campo " + ef.getName() + ": " + err);
+        });
+      }
     });
 
   }

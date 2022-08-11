@@ -22,6 +22,11 @@ abstract public class ElementoForm {
     this();
     this.name = name;
   }
+
+  public String getName() {
+    return this.name;
+  }
+
   //Retorno la misma clase para poder usar la forma encadenada de métodos
   public ElementoForm addValidator(Validador validator) {
     this.validators.add(validator);
