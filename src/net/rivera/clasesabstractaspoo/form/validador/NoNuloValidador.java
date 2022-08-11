@@ -1,7 +1,8 @@
 package net.rivera.clasesabstractaspoo.form.validador;
 
 public class NoNuloValidador extends Validador{
-  protected String message = "El campo no puede ser nulo";
+  //Al utilizar "%s" es para optimizar el código y concatenar el campo en el momento que agrego el mensaje
+  protected String message = "El campo %s no puede ser nulo";
 
   @Override
   public String getMessage() {

@@ -1,7 +1,7 @@
 package net.rivera.clasesabstractaspoo.form.validador;
 
 public class NumeroValidador extends Validador{
-  protected String message = "Debe ser un numero";
+  protected String message = "Debe ser un numero el campo %s";
 
   @Override
   public String getMessage() {

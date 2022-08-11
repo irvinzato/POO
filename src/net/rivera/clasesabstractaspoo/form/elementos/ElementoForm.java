@@ -44,7 +44,8 @@ abstract public class ElementoForm {
   public boolean isValid() {
     for( Validador v: validators ) {
       if( !v.isValid(this.value) ){
-        this.errors.add(v.getMessage());
+        //this.errors.add(v.getMessage() + " "  + this.name); Está es la manera de hacerlo sin usar "%s" en los mensajes
+        this.errors.add( String.format(v.getMessage(), this.name) );
       }
     }
     return this.errors.isEmpty();

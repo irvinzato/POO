@@ -78,10 +78,8 @@ public class FormEjemplo {
 
     System.out.println("Revision de errores");
     elements.forEach(ef -> {
-      if( !ef.isValid() ) {
-        ef.getErrors().forEach(err -> {
-          System.out.println("Error en campo " + ef.getName() + ": " + err);
-        });
+      if( !ef.isValid() ) {   //System.out::println - Es la forma de simplificar un método por referencia en lambda
+        ef.getErrors().forEach(System.out::println);
       }
     });
 

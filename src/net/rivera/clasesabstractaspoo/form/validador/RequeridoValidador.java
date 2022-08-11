@@ -1,7 +1,7 @@
 package net.rivera.clasesabstractaspoo.form.validador;
 
 public class RequeridoValidador extends Validador{
-  protected String message = "El campo es requerido";
+  protected String message = "El campo %s es requerido";
 
   @Override
   public String getMessage() {

@@ -2,7 +2,7 @@ package net.rivera.clasesabstractaspoo.form.validador;
 
 public class EmailValidador extends Validador{
 
-  protected String message = "Debe ser un formato de email";
+  protected String message = "El campo %s tiene un formato de correo invalido";
   private final static String EMAIL_REGEX = "^(.+)@(.+)$";
 
   @Override
