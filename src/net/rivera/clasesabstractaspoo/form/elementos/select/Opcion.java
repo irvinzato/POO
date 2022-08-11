@@ -36,4 +36,9 @@ public class Opcion {
   public void setSelected(boolean selected) {
     this.selected = selected;
   }
+  //De esta manera puedo usar el método dentro de su creación - language.addOption(new Opcion("JavaScript", "3").setSelected());
+  public Opcion setSelected() {
+    this.selected = true;
+    return this;
+  }
 }
