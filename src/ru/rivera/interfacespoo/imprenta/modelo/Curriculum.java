@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curriculum extends Hoja implements Imprimible{
-  private String person;
+  private Persona person;
   private String graduate;
   private List<String> experiences;
 
-  public Curriculum(String content, String person, String graduate) {
+  public Curriculum(String content, Persona person, String graduate) {
     super(content);
     this.person = person;
     this.graduate = graduate;

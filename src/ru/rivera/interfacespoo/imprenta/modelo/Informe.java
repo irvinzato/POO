@@ -1,10 +1,10 @@
 package ru.rivera.interfacespoo.imprenta.modelo;
 
 public class Informe extends Hoja implements Imprimible{
-  private String author;
-  private String reviewer;
+  private Persona author;
+  private Persona reviewer;
 
-  public Informe(String content, String author, String reviewer) {
+  public Informe(String content, Persona author, Persona reviewer) {
     super(content);
     this.author = author;
     this.reviewer = reviewer;

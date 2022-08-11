@@ -5,7 +5,7 @@ import static ru.rivera.interfacespoo.imprenta.modelo.Genero.*;
 
 public class ImprentaEjemplo {
   public static void main(String[] args) {
-    Curriculum cv = new Curriculum("Resumen laboral...", "Irving Rivera", "Programador");
+    Curriculum cv = new Curriculum("Resumen laboral...", new Persona("Irving", "Rivera"), "Programador");
     cv.addExperience("JavaScript")
       .addExperience("Angular")
       .addExperience("Node")
@@ -14,12 +14,13 @@ public class ImprentaEjemplo {
       .addExperience("Java")
       .addExperience("Spring");
 
-    Informe report = new Informe("Contenido del informe...", "Joaquin", "Buda");
+    Informe report = new Informe("Contenido del informe...", new Persona("Joaquin", "Perez"),
+            new Persona("Buda", "Real"));
 
     toPrint(cv);
     toPrint(report);
 
-    Libro library = new Libro("Frank", "Historia de frameworks", PROGRAMACION);
+    Libro library = new Libro(new Persona("Frank", "Luca"), "Historia de frameworks", PROGRAMACION);
     library.addPage(new Pagina("Historia sobre Angular..."))
             .addPage(new Pagina("Historia de Spring..."))
             .addPage(new Pagina("Historia de React..."))
