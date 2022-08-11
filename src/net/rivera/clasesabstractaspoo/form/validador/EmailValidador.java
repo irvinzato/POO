@@ -2,7 +2,8 @@ package net.rivera.clasesabstractaspoo.form.validador;
 
 public class EmailValidador extends Validador{
 
-  protected String message = "Debe ser un email";
+  protected String message = "Debe ser un formato de email";
+  private final static String EMAIL_REGEX = "^(.+)@(.+)$";
 
   @Override
   public String getMessage() {
@@ -16,10 +17,6 @@ public class EmailValidador extends Validador{
 
   @Override
   public boolean isValid(String value) {
-    if( value.contains("@") && value.contains(".") ) {
-      return true;
-    } else {
-      return false;
-    }
+    return value.matches( EMAIL_REGEX );
   }
 }
