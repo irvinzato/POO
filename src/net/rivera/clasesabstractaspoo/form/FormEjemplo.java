@@ -1,10 +1,10 @@
 package net.rivera.clasesabstractaspoo.form;
 
-import net.rivera.clasesabstractaspoo.form.elementos.ElementoForm;
-import net.rivera.clasesabstractaspoo.form.elementos.InputForm;
-import net.rivera.clasesabstractaspoo.form.elementos.SelectForm;
-import net.rivera.clasesabstractaspoo.form.elementos.TextAreaForm;
-import net.rivera.clasesabstractaspoo.form.elementos.select.Opcion;
+import net.rivera.clasesabstractaspoo.form.elementos.*;
+import net.rivera.clasesabstractaspoo.form.elementos.select.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FormEjemplo {
   public static void main(String[] args) {
@@ -35,8 +35,28 @@ public class FormEjemplo {
     password.setValue("123456");
     email.setValue("multizato@hotmail.com");
     age.setValue("26");
-
+    experience.setValue("Más de 6 años de experiencia...");
     java.setSelected(true);
+
+    //Todos son tipo "ElementoForm" porque es la clase padre de todas
+    List<ElementoForm> elements = new ArrayList<>(); //También puedo usar Arrays.asList(username,password...); es lo mismo pero de otra forma
+    elements.add(username);
+    elements.add(password);
+    elements.add(email);
+    elements.add(age);
+    elements.add(experience);
+    elements.add(language);
+
+    for(ElementoForm ef: elements) {
+      System.out.println(ef.drawHtml());
+      System.out.println("<br>");
+    }
+    //Otra forma de iterar con expresión lambda
+    System.out.println("Iteración forEach con expresión lambda");
+    elements.forEach( ef -> {
+      System.out.println(ef.drawHtml());
+      System.out.println("<br>");
+    });
 
   }
 

@@ -30,7 +30,7 @@ public class SelectForm extends ElementoForm{
         .append("'>");
 
     for(Opcion opt: this.options) {
-      sb.append("\n<option: value='")
+      sb.append("\n<option value='")
         .append(opt.getValue())
         .append("'");
       if( opt.isSelected() ) {
