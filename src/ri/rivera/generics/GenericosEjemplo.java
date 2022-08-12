@@ -4,7 +4,6 @@ import ri.rivera.interfacespoo.modelo.ClientePremium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class GenericosEjemplo {
