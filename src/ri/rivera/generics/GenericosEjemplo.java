@@ -43,6 +43,11 @@ public class GenericosEjemplo {
     toPrintClients(clientsList);
     toPrintClients(clientsPremium);
 
+    System.out.println("Metodo que compara 3 genericos");
+    System.out.println(max(1.4, 9.5, 5.7));
+    System.out.println(max("Zanahoria", "Arandano", "Durazno"));
+
+
   }
 
   //Antes el método retornaba "List<Cliente>" y recibía un arreglo de clientes, lo modifiqué de la sig. manera para que acepte cualquier lista
@@ -77,6 +82,17 @@ public class GenericosEjemplo {
   //Añado "? extends Cliente" para que pase cualquier clase hija
   public static void toPrintClients(List< ? extends Cliente > clients) {
     clients.forEach(System.out::println);
+  }
+
+  public static <T extends Comparable<T>> T max(T a, T b, T c) {
+    T max = a;
+    if( b.compareTo(max) > 0 ) {
+      max = b;
+    }
+    if( c.compareTo(max) > 0 ) {
+      max = c;
+    }
+    return max;
   }
 
 
