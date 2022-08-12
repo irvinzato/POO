@@ -37,8 +37,8 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
 
   @Override
   public void delete(Integer id) {
-    T c = this.byID(id);
-    this.dataSource.remove(c);
+    T obj = this.byID(id);
+    this.dataSource.remove(obj);
   }
 
   @Override

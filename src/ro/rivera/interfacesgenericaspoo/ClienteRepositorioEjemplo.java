@@ -1,13 +1,13 @@
 package ro.rivera.interfacesgenericaspoo;
 
 import ro.rivera.interfacesgenericaspoo.modelo.Cliente;
-import ro.rivera.interfacesgenericaspoo.repositorio.ClienteListRepositorio;
+import ro.rivera.interfacesgenericaspoo.repositorio.lista.ClienteListRepositorio;
 import ro.rivera.interfacesgenericaspoo.repositorio.Direccion;
 import ro.rivera.interfacesgenericaspoo.repositorio.OrdenablePaginableCrudRepositorio;
 
 import java.util.List;
 
-public class RepositorioEjemplo {
+public class ClienteRepositorioEjemplo {
   public static void main(String[] args) {
 
     OrdenablePaginableCrudRepositorio<Cliente> repo = new ClienteListRepositorio();

@@ -1,5 +1,7 @@
-package ro.rivera.interfacesgenericaspoo.repositorio;
+package ro.rivera.interfacesgenericaspoo.repositorio.lista;
 import ro.rivera.interfacesgenericaspoo.modelo.Cliente;
+import ro.rivera.interfacesgenericaspoo.repositorio.AbstractaListRepositorio;
+import ro.rivera.interfacesgenericaspoo.repositorio.Direccion;
 
 import java.util.ArrayList;
 import java.util.Comparator;

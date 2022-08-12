@@ -5,7 +5,7 @@ import java.util.List;
 public interface CrudRepositorio<T> {
   List<T> toList();
   T byID(Integer id);
-  void create(T client);
-  void edit(T client);
+  void create(T obj);
+  void edit(T obj);
   void delete(Integer id);
 }
