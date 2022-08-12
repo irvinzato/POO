@@ -38,6 +38,11 @@ public class GenericosEjemplo {
             new ClientePremium[]{ new ClientePremium("Aketzalli", "Rivers"),
             new ClientePremium("Naomi", "Ramos")});
 
+    System.out.println("Metodo imprimir clientes");
+    toPrintClients(clients);
+    toPrintClients(clientsList);
+    toPrintClients(clientsPremium);
+
   }
 
   //Antes el método retornaba "List<Cliente>" y recibía un arreglo de clientes, lo modifiqué de la sig. manera para que acepte cualquier lista
@@ -56,11 +61,22 @@ public class GenericosEjemplo {
 
   //Se pueden limitar los genericos, de esta manera solo dejará pasar arreglos de tipo Number(int,double, float,etc)
   public static <T extends Number> List<T> fromArrayToListNumber(T[] c) {
-    return Arrays.asList(c);  //Método que convierte un arreglo a una lista
+    return Arrays.asList(c);
   }
   //Limito a cualquier tipo de Cliente y sub-clases por ejemplo ClientePremium, puedo limitar aún más con "&" y una interfaz
   public static <T extends Cliente & Comparable<T>> List<T> fromArrayToListClient(T[] c) {
-    return Arrays.asList(c);  //Método que convierte un arreglo a una lista
+    return Arrays.asList(c);
+  }
+
+  /*Este método es equivalente al de arriba, por eso no se puede tener 2 veces
+  public static List<Cliente> fromArrayToListClient(Cliente[] c) {
+    return Arrays.asList(c);
+  }*/
+
+  //Aquí solo deja pasar las listas tipo "Cliente" pero no su descendencia, una lista no hereda
+  //Añado "? extends Cliente" para que pase cualquier clase hija
+  public static void toPrintClients(List< ? extends Cliente > clients) {
+    clients.forEach(System.out::println);
   }
 
 
