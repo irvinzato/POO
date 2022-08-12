@@ -2,28 +2,14 @@ package ro.rivera.interfacesgenericaspoo.modelo;
 
 import java.util.Objects;
 
-public class Cliente {
-  private static int lastId;
-  private Integer id;
+public class Cliente extends BaseEntity {
   private String name;
   private String lastName;
 
-  public Cliente() {
-    this.id = ++lastId;
-  }
-
   public Cliente(String name, String lastName) {
-    this();
+    super();
     this.name = name;
     this.lastName = lastName;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
   }
 
   public String getName() {

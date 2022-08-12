@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-
 //Esta es una clase concreta y HEREDA todos los métodos reutilizables de la clase abstracta, le paso mi Objeto concreto
 public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
 
+  /* Hice este método reutilizable, lo implemente en la clase padre para cualquier clase concreta
   @Override
   public Cliente byID(Integer id) {
     Cliente c = null;
@@ -19,7 +19,7 @@ public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
       }
     }
     return c;
-  }
+  }*/
 
   @Override
   public void edit(Cliente client) {
