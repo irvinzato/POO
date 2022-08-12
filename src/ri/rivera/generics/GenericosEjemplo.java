@@ -1,7 +1,10 @@
 package ri.rivera.generics;
 import ri.rivera.interfacespoo.modelo.Cliente;
+import ri.rivera.interfacespoo.modelo.ClientePremium;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class GenericosEjemplo {
@@ -31,6 +34,10 @@ public class GenericosEjemplo {
     List<String> stringList = fromArrayToList(new String[]{"Irving", "Jade", "Angeles", "Jesus"}, integersArr);
     stringList.forEach(System.out::println);
 
+    List<ClientePremium> clientsPremium = fromArrayToListClient(
+            new ClientePremium[]{ new ClientePremium("Aketzalli", "Rivers"),
+            new ClientePremium("Naomi", "Ramos")});
+
   }
 
   //Antes el método retornaba "List<Cliente>" y recibía un arreglo de clientes, lo modifiqué de la sig. manera para que acepte cualquier lista
@@ -46,5 +53,15 @@ public class GenericosEjemplo {
     }
     return Arrays.asList(t);
   }
+
+  //Se pueden limitar los genericos, de esta manera solo dejará pasar arreglos de tipo Number(int,double, float,etc)
+  public static <T extends Number> List<T> fromArrayToListNumber(T[] c) {
+    return Arrays.asList(c);  //Método que convierte un arreglo a una lista
+  }
+  //Limito a cualquier tipo de Cliente y sub-clases por ejemplo ClientePremium, puedo limitar aún más con "&" y una interfaz
+  public static <T extends Cliente & Comparable<T>> List<T> fromArrayToListClient(T[] c) {
+    return Arrays.asList(c);  //Método que convierte un arreglo a una lista
+  }
+
 
 }
