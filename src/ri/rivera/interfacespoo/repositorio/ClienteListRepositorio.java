@@ -3,6 +3,7 @@ package ri.rivera.interfacespoo.repositorio;
 import ri.rivera.interfacespoo.modelo.Cliente;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ClienteListRepositorio implements CrudRepositorio, OrdenableRepositorio, PaginableRepositorio{
@@ -49,11 +50,32 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
 
   @Override
   public List<Cliente> toList(String field, Direccion direction) {
-    return null;
+    //La interfaz Comparable mi sirve para comparar Objetos, también puedo simplificarlo en expresión lambda. ep.217
+    this.dataSource.sort(new Comparator<Cliente>() {
+      @Override
+      public int compare(Cliente a, Cliente b) {
+        int res = 0;
+        if( direction == Direccion.ASC ) {
+          switch ( field ) {
+            case "id" -> res = a.getId().compareTo(b.getId());
+            case "name" -> res = a.getName().compareTo(b.getName());
+            case "lastName" -> res = a.getLastName().compareTo(b.getLastName());
+          }
+        } else if( direction == Direccion.DESC ) {
+          switch ( field ) {
+            case "id" -> res = b.getId().compareTo(a.getId());
+            case "name" -> res = b.getName().compareTo(a.getName());
+            case "lastName" -> res = b.getLastName().compareTo(a.getLastName());
+          }
+        }
+        return res;
+      }
+    });
+    return this.dataSource;
   }
 
   @Override
   public List<Cliente> toList(int from, int to) {
-    return null;
+    return this.dataSource.subList( from, to );
   }
 }
