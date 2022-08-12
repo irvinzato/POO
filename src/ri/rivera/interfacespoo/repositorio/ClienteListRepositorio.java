@@ -50,8 +50,10 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
 
   @Override
   public List<Cliente> toList(String field, Direccion direction) {
+    //A partir de la lista original genero una nueva para que no sea afectada la original cada que se realizan movimientos
+    List<Cliente> listOrder = new ArrayList<>(this.dataSource);
     //La interfaz Comparable mi sirve para comparar Objetos, también puedo simplificarlo en expresión lambda. ep.217
-    this.dataSource.sort(new Comparator<Cliente>() {
+    listOrder.sort(new Comparator<Cliente>() {
       @Override
       public int compare(Cliente a, Cliente b) {
         int res = 0;
@@ -71,7 +73,7 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
         return res;
       }
     });
-    return this.dataSource;
+    return listOrder;
   }
 
   @Override

@@ -32,8 +32,8 @@ public class RepositorioEjemplo {
     repo.edit(irvingAct);
     Cliente irving = repo.byID(1);
     System.out.println(irving);
-    System.out.println("====== Lista completa despues de editar, ordeno por ID ======");
-    List<Cliente> clientsUpdate = ((OrdenableRepositorio) repo).toList("id", Direccion.ASC);
+    System.out.println("====== Lista completa despues de editar, ordeno por ID DESC ======");
+    List<Cliente> clientsUpdate = ((OrdenableRepositorio) repo).toList("id", Direccion.DESC);
     clientsUpdate.forEach( System.out::println );
 
     System.out.println("====== Borrar ======");
