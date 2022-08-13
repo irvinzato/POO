@@ -22,5 +22,25 @@ public class CalculadoraExcepcionesEjemplo {
 
     System.out.println("Continuando con el flujo de la aplicación " + divide);
 
+    //SEGUNDO EJEMPLO DE PERSONALIZACIÓN DE EXCEPCIONES
+    Calculadora calculatorString = new Calculadora();
+    double res = 0;
+
+    try {
+      res = calculatorString.divide("fg","s");
+    } catch(PersonalizacionExcepcion pe) {
+      System.out.println("Primer error personalizado: " + pe.getMessage());
+    } catch(FormatoNumeroExcepcion fne) {
+      System.out.println("Segundo error personalizado: " + fne.getMessage());
+      System.out.println("Otra forma de mostrar la excepción por traza");
+      fne.printStackTrace(System.out);
+    }
+
+    System.out.println("Respuesta del segundo ejemplo " + res);
+
+
+
+
+
   }
 }
