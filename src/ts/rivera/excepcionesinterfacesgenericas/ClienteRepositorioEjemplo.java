@@ -18,9 +18,11 @@ public class ClienteRepositorioEjemplo {
       repo.create(new Cliente("Irving", "Rivera"));
       repo.create(new Cliente("Angeles", "Lopez"));
       repo.create(new Cliente("Jade", "Rivera"));
-      repo.create(new Cliente("Naomi", "Ruiz"));
+      Cliente naomi = new Cliente("Naomi", "Ruiz");
+      repo.create(naomi);
+      repo.create(naomi);
 
-      repo.create(null);
+      //repo.create(null);
 
       List<Cliente> clients = repo.toList();
       clients.forEach( cli -> System.out.println("Cliente: " + cli) );

@@ -42,6 +42,10 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
     if( t == null ) {
       throw new EscrituraAccesoDatoException("Error al insertar un objeto, no se puede agregar null");
     }
+    if( this.dataSource.contains(t) ) {
+      throw new EscrituraAccesoDatoException("Error del objeto " + t.getId() +
+              " ya existe en el repositorio");
+    }
     this.dataSource.add(t);
   }
 
