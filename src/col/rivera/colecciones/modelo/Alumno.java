@@ -1,5 +1,7 @@
 package col.rivera.colecciones.modelo;
 
+import java.util.Objects;
+
 public class Alumno implements Comparable<Alumno>{
   private String name;
   private Double note;
@@ -31,15 +33,29 @@ public class Alumno implements Comparable<Alumno>{
   @Override
   public String toString() {
     return "Nombre del alumno = " + name +
-            ", nota = " + note + "\n";
+            ", nota = " + note;
   }
 
-  //Tengo que ordenar por algún atributo del objeto
+  //Tengo que ordenar por algún atributo del objeto, lo ocupo en "TreeSetComparableEjemplo"
   @Override
   public int compareTo(Alumno student) {
     if( this.name == null ) {
       return 0;
     }
     return this.note.compareTo(student.note);
+  }
+
+  //Estos métodos los ocupo en "HashSetUnicidadEjemplo"
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Alumno alumno = (Alumno) o;
+    return Objects.equals(name, alumno.name) && Objects.equals(note, alumno.note);
+  }
+  //El hash debe tener los atributos que uso en el método de arriba, en la parte de "equals"
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, note);
   }
 }

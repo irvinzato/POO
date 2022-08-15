@@ -15,6 +15,8 @@ public class TreeSetComparableEjemplo {
     students.add(new Alumno("Leo", 8.0));
     students.add(new Alumno("Luna", 8.2));
     students.add(new Alumno("Pablo", 8.6));
+    //Como tengo la regla "compareTo" por nota, no puede haber notas repetidas, lo mismo si cambio la regla a nombre
+    students.add(new Alumno("Cesar", 8.6));
 
     //Como es un objeto lo que se quiere ordenar, se necesita implementar el compareTo
     System.out.println(students);
