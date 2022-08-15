@@ -36,7 +36,7 @@ public class Alumno implements Comparable<Alumno>{
             ", nota = " + note;
   }
 
-  //Tengo que ordenar por algún atributo del objeto, lo ocupo en "TreeSetComparableEjemplo"
+  //Tengo que ordenar por algún atributo del objeto, lo ocupo en "TreeSetComparableEjemplo", "ListComparableComparatorEjemplo"
   @Override
   public int compareTo(Alumno student) {
     if( this.name == null ) {
@@ -48,7 +48,7 @@ public class Alumno implements Comparable<Alumno>{
   //Estos métodos los ocupo en "HashSetUnicidadEjemplo"
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
+    if (this == o) return true; //Si es idéntico el objeto(A donde apunta la referencia)
     if (o == null || getClass() != o.getClass()) return false;
     Alumno alumno = (Alumno) o;
     return Objects.equals(name, alumno.name) && Objects.equals(note, alumno.note);
