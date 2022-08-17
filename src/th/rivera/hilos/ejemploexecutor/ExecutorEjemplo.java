@@ -20,7 +20,7 @@ public class ExecutorEjemplo {
       System.out.println("Finaliza la tarea...");
     };
 
-    executor.submit(task); //Para mandar el executor pero hay que detenerlo
+    executor.submit(task); //Para mandar una tarea al executor pero hay que detenerlo
     executor.shutdown();  //Para apagar una vez finaliza la ejecución
     System.out.println("Continuando con ejecución del método MAIN 1");
     executor.awaitTermination(2, TimeUnit.SECONDS); //Espera a que finalicen todas las tareas para seguir, pero el tiempo debe coincidir
