@@ -3,6 +3,7 @@ package pfo.rivera.java8.optional.ejemplo.models;
 public class Computadora {
   private String name;
   private String model;
+  private Procesador processor;
 
   public Computadora(String name, String model) {
     this.name = name;
@@ -23,6 +24,14 @@ public class Computadora {
 
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public Procesador getProcessor() {
+    return processor;
+  }
+
+  public void setProcessor(Procesador processor) {
+    this.processor = processor;
   }
 
   @Override
