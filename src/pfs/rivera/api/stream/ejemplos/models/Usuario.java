@@ -1,5 +1,7 @@
 package pfs.rivera.api.stream.ejemplos.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
@@ -8,10 +10,13 @@ public class Usuario {
   private String name;
   private String lastName;
 
+  private List<Factura> bills;
+
   public Usuario(String name, String lastName) {
     this.id = ++this.lastID;
     this.name = name;
     this.lastName = lastName;
+    this.bills = new ArrayList<>();
   }
 
   public Integer getId() {
@@ -36,6 +41,15 @@ public class Usuario {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  public List<Factura> getBills() {
+    return bills;
+  }
+  //En lugar de set, es add para listas
+  public void addBill(Factura bill) {
+    this.bills.add(bill);
+    bill.setUser(this); //Además de agregar factura, en la factura añado al Usuario
   }
 
   @Override
