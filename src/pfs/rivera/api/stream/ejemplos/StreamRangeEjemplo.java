@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 public class StreamRangeEjemplo {
   public static void main(String[] args) {
-    System.out.println("Creación de flujos mediante rangos de enteros con IntStream");
+    System.out.println("Creación de flujos mediante rangos de enteros con IntStream, range no incluye el ultimo numero, rangeClosed si");
     IntStream range = IntStream.range(5, 20).peek(System.out::println);
 
     //Lo que esta comentado es otra forma de hacer la suma pero con método del "IntStream" - "sum()

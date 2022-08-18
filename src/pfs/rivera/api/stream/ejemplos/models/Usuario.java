@@ -1,5 +1,7 @@
 package pfs.rivera.api.stream.ejemplos.models;
 
+import java.util.Objects;
+
 public class Usuario {
   private Integer id;
   private static int lastID;
@@ -40,5 +42,19 @@ public class Usuario {
   public String toString() {
     return "name = " + name +
             ", lastName = " + lastName;
+  }
+
+  //Para que no deje crear objetos con la misma información
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Usuario usuario = (Usuario) o;
+    return Objects.equals(name, usuario.name) && Objects.equals(lastName, usuario.lastName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, lastName);
   }
 }
