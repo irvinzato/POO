@@ -10,8 +10,8 @@ public class StreamFilterSingle2Ejemplo {
     Usuario user = Stream
             .of("Irving Rivera", "Naomi Guzman", "Angeles Lopez", "Mauricio Banderley", "Naomi Marley")
             .map( name -> new Usuario( name.split(" ")[0], name.split(" ")[1] ))
-            .filter( u -> u.getId().equals(3) )  //En lugar de buscar por nombre, por ID
-            .findFirst().get();
+            .filter( u -> u.getId().equals(3) )
+            .findFirst().get();   //Puedo usar "orElse" por si no existe
 
     System.out.println("Se encontró al usuario " + user );
 
