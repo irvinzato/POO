@@ -3,6 +3,8 @@ package pfd.rivera.java8.datetime.ejemplos;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class LocalDateEjemplo {
   public static void main(String[] args) {
@@ -48,6 +50,18 @@ public class LocalDateEjemplo {
 
     isAfter = LocalDate.now().isAfter(LocalDate.now().minusDays(1));
     System.out.println("Otra comparación de si es después: " + isAfter);
+
+
+    System.out.println("MES EN ESPANIOL, DIA Y VARIEDADES");
+    LocalDate currentDate2 = LocalDate.now();
+    Month mounth = currentDate2.getMonth();
+    System.out.println("Mes: " + mounth);
+    System.out.println("Numero del mes: " + mounth.getValue());
+    System.out.println("Mes en Espaniol: " + mounth.getDisplayName(TextStyle.FULL, new Locale("es", "ES")));
+
+    DayOfWeek dayOfWeek = currentDate2.getDayOfWeek();
+    System.out.println("Numero del dia: " +dayOfWeek.getValue());
+    System.out.println("Nombre del dia: " +dayOfWeek.getDisplayName(TextStyle.FULL, new Locale("es", "ES")));
 
   }
 }
