@@ -3,13 +3,13 @@ package paq.rivera.patronesdiseño.abstractfactory;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class PizzaProducto {
+abstract public class PizzaProductoAbstract {
   protected String name;
   protected String dough;
   protected String sauce;
   protected List<String> ingredients;
 
-  public PizzaProducto() {
+  public PizzaProductoAbstract() {
     this.ingredients = new ArrayList<>();
   }
 
@@ -28,6 +28,10 @@ abstract public class PizzaProducto {
   //Métodos abstractos para que cada uno implemente su forma de hacerlo
   abstract public void cook();
   abstract public void cut();
+
+  public String getName() {
+    return name;
+  }
 
   @Override
   public String toString() {
