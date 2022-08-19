@@ -7,7 +7,7 @@ import paq.rivera.patronesdiseño.decorator.decorador.SubrayadoDecorador;
 public class DecoradorEjemplo {
   public static void main(String[] args) {
 
-    System.out.println("Patron Decorador - De forma recursiva se empieza a formatear el texto");
+    System.out.println("Patron Decorador - De forma recursiva se empieza a formatear el texto, compuesto de una interface, objeto(clase) que lo implementa y clase abstracta padre con hijos");
     System.out.println("Patron Decorador - Da posibilidades de tener muchas combinaciones posibles");
     System.out.println("Si se ocupara solo Herencia serian demasiadas combinaciones");
 
