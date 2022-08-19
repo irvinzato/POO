@@ -8,4 +8,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME) //En que contexto se va a ejecutar - RUNTIME en tiempo de ejecución
 public @interface JsonAtributo {
   String nameAn() default "";
+  boolean capitalize() default false;  //Opcional, la uso para poner mayúscula en "JsonSerializado"
 }

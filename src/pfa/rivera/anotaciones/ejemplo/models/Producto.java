@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Producto {
   //Cada atributo que anoto se va a importar a "JsonAtributo" y se necesita implementar un procesador para que tenga efecto
-  @JsonAtributo
+  @JsonAtributo(capitalize = true)
   private String name;
 
   @JsonAtributo(nameAn = "costo") //Puedo darle un valor por defecto o no
