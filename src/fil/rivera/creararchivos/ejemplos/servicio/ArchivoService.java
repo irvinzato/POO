@@ -1,6 +1,7 @@
 package fil.rivera.creararchivos.ejemplos.servicio;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class ArchivoService {
 
@@ -47,6 +48,42 @@ public class ArchivoService {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  //Primera forma de leer archivo - Usando FileReader y BufferReader
+  public String readFile(String nameFile) {
+    StringBuilder sb = new StringBuilder(); //Aquí guardaré todas las líneas del archivo
+    File file = new File(nameFile);
+    try {
+      FileReader readerFile = new FileReader(file);
+      BufferedReader readerBuf = new BufferedReader(readerFile);
+      String line;
+      //String line = readerBuf.readLine(); //Aquí leo solo una línea y quiero todas
+      while( (line = readerBuf.readLine()) != null ) {
+        sb.append(line).append("\n");
+      }
+      readerBuf.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return sb.toString();
+  }
+
+  //Segunda forma de leer archivo - Usando Scanner
+  public String readFile2(String nameFile) {
+    StringBuilder sb = new StringBuilder();
+    File file = new File(nameFile);
+    try {
+      Scanner s = new Scanner(file);
+      s.useDelimiter("\n"); //Patron por el cual va a separar las líneas
+      while( s.hasNext() ) {
+        sb.append(s.next()).append("\n");
+      }
+      s.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return sb.toString();
   }
 
 }
